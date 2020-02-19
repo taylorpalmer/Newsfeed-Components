@@ -114,9 +114,39 @@ const articleComponent = (
   const parThree = document.createElement("p");
   parThree.textContent = parThreeText;
 
+  const expandArticleToggle = () => {
+    expandButton.classList.toggle("article-open");
+  };
+
   const expandButton = document.createElement("span");
   expandButton.classList.add("expandButton");
+  expandButton.addEventListener("click", expandArticleToggle);
+
+  article.appendChild(title);
+
+  article.appendChild(date);
+
+  article.appendChild(parOne);
+  article.appendChild(parTwo);
+  article.appendChild(parThree);
+
+  article.appendChild(expandButton);
+
+  return article;
 };
+
+const articles = document.querySelector("articles");
+
+data.forEach(currentItem => {
+  const newArticle = articleComponent(
+    currentItem.title,
+    currentItem.date,
+    currentItem.parOne,
+    currentItem.parTwo,
+    currentItem.parThree
+  );
+  articles.appendChild(newArticle);
+});
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   

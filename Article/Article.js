@@ -135,15 +135,15 @@ const articleComponent = (
   return article;
 };
 
-const articles = document.querySelector("articles");
+const articles = document.querySelector(".articles");
 
 data.forEach(currentItem => {
   const newArticle = articleComponent(
     currentItem.title,
     currentItem.date,
-    currentItem.parOne,
-    currentItem.parTwo,
-    currentItem.parThree
+    currentItem.firstParagraph,
+    currentItem.secondParagraph,
+    currentItem.thirdParagraph
   );
   articles.appendChild(newArticle);
 });

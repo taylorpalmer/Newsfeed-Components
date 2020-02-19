@@ -1,29 +1,29 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
 
 let menuItems = [
-  'Students',
-  'Faculty',
+  "Students",
+  "Faculty",
   "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
+  "Tech Trends",
+  "Music",
+  "Log Out"
 ];
 
-const menuComponent = (array) => {
-  const menu = document.createElement('div');
-  menu.classList.add('menu');
+const menuComponent = array => {
+  const menu = document.createElement("div");
+  menu.classList.add("menu");
 
-  const list = document.createElement('ul');
+  const list = document.createElement("ul");
 
-  const listItem = document.createElement('li');
+  const listItem = document.createElement("li");
   list.textContent = array;
 
-  const menuExpand = (event) => {
-    menuButton.classList.toggle('menu--open');
-  }
+  const menuExpand = event => {
+    menuButton.classList.toggle("menu--open");
+  };
 
-  const menuButton = document.querySelector('.menu-button');
-  menuButton.addEventListener('click', menuExpand);
+  const menuButton = document.querySelector(".menu-button");
+  menuButton.addEventListener("click", menuExpand);
 
   menu.appendChild(list);
 
@@ -32,16 +32,10 @@ const menuComponent = (array) => {
   return menu;
 };
 
-const script = document.querySelector('script');
+const header = document.querySelector(".header");
 
-menuItems.forEach(listItem => {
-  const newList = menuComponent(
-    listItem.menuItems[]
-  );
-  script.appendChild(newList);
-})
-
-
+const newList = menuComponent(menuItems);
+header.appendChild(newList);
 
 /* 
 

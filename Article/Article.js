@@ -115,12 +115,13 @@ const articleComponent = (
   parThree.textContent = parThreeText;
 
   const expandArticleToggle = () => {
-    expandButton.classList.toggle("article-open");
+    article.classList.toggle("article-open");
   };
 
   const expandButton = document.createElement("span");
   expandButton.classList.add("expandButton");
   expandButton.addEventListener("click", expandArticleToggle);
+  expandButton.textContent = "View Article";
 
   article.appendChild(title);
 
@@ -136,7 +137,7 @@ const articleComponent = (
 };
 
 const articles = document.querySelector(".articles");
-
+console.log(articles);
 data.forEach(currentItem => {
   const newArticle = articleComponent(
     currentItem.title,
@@ -145,6 +146,7 @@ data.forEach(currentItem => {
     currentItem.secondParagraph,
     currentItem.thirdParagraph
   );
+  console.log(newArticle);
   articles.appendChild(newArticle);
 });
 

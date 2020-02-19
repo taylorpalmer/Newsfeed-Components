@@ -18,6 +18,13 @@ const menuComponent = (array) => {
   const listItem = document.createElement('li');
   list.textContent = array;
 
+  const menuExpand = (event) => {
+    menuButton.classList.toggle('menu--open');
+  }
+
+  const menuButton = document.querySelector('.menu-button');
+  menuButton.addEventListener('click', menuExpand);
+
   menu.appendChild(list);
 
   list.appendChild(listItem);

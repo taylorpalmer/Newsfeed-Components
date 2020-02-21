@@ -9,25 +9,26 @@ let menuItems = [
   "Log Out"
 ];
 
-const menuComponent = array => {
+const menuComponent = menuItems => {
   const menu = document.createElement("div");
   menu.classList.add("menu");
 
   const list = document.createElement("ul");
 
-  const listItem = document.createElement("li");
-  list.textContent = array;
+  menuItems.forEach(item => {
+    const listItem = document.createElement("li");
+    listItem.textContent = item;
+    list.appendChild(listItem);
+  });
 
-  const menuExpand = event => {
-    menuButton.classList.toggle("menu--open");
+  const menuExpand = () => {
+    menu.classList.toggle("menu--open");
   };
 
   const menuButton = document.querySelector(".menu-button");
   menuButton.addEventListener("click", menuExpand);
 
   menu.appendChild(list);
-
-  list.appendChild(listItem);
 
   return menu;
 };

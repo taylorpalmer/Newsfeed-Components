@@ -3,7 +3,7 @@
 const data = [
   {
     title: 'Lambda School Students: "We\'re the best!"',
-    date: 'Nov 5th, 2018',
+    date: "Nov 5th, 2018",
     firstParagraph: `Lucas ipsum dolor sit amet ben twi'lek padmé darth darth darth moff hutt organa twi'lek. Ben amidala secura skywalker lando
         moff wicket tatooine luke.Solo wampa wampa calrissian yoda moff.Darth grievous darth gonk darth hutt.Darth baba skywalker
         watto fett jango maul han.Mon ewok sidious sidious lando kenobi grievous gamorrean solo.Yoda wedge utapau darth calamari.
@@ -23,8 +23,8 @@ const data = [
         moff calamari mon obi-wan. Solo grievous lando coruscant. Jinn darth palpatine obi-wan mon.`
   },
   {
-    title: 'Javascript and You, ES6',
-    date: 'May 7th, 2019',
+    title: "Javascript and You, ES6",
+    date: "May 7th, 2019",
     firstParagraph: `Alohamora wand elf parchment, Wingardium Leviosa hippogriff, house dementors betrayal. Holly, Snape centaur portkey ghost
         Hermione spell bezoar Scabbers. Peruvian-Night-Powder werewolf, Dobby pear-tickle half-moon-glasses, Knight-Bus. Padfoot
         snargaluff seeker: Hagrid broomstick mischief managed. Snitch Fluffy rock-cake, 9 ¾ dress robes I must not tell lies. Mudbloods
@@ -43,8 +43,8 @@ const data = [
         sing above the ground, Ginny Weasley bright red. Fanged frisbees, phoenix tears good clean match.`
   },
   {
-    title: 'React vs Angular vs Vue',
-    date: 'June 7th, 2019',
+    title: "React vs Angular vs Vue",
+    date: "June 7th, 2019",
     firstParagraph: `Bulbasaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ivysaur Lorem ipsum dolor sit amet, consectetur adipiscing
         elit. Venusaur Lorem ipsum dolor sit amet, consectetur adipiscing elit. Charmander Lorem ipsum dolor sit amet, consectetur
         adipiscing elit. Charmeleon Lorem ipsum dolor sit amet, consectetur adipiscing elit. Charizard Lorem ipsum dolor sit amet,
@@ -71,8 +71,8 @@ const data = [
         Castform Lotad the power that's inside Burnt Berry Makuhita. Ghost Ariados Corphish Dusclops Golbat Gligar Zweilous.`
   },
   {
-    title: 'Professional Software Development in 2019',
-    date: 'Jan 1st, 2019',
+    title: "Professional Software Development in 2019",
+    date: "Jan 1st, 2019",
     firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
           hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
           Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
@@ -87,6 +87,68 @@ const data = [
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
+
+const articleComponent = (
+  titleText,
+  dateText,
+  parOneText,
+  parTwoText,
+  parThreeText
+) => {
+  const article = document.createElement("div");
+  article.classList.add("article");
+
+  const title = document.createElement("h2");
+  title.textContent = titleText;
+
+  const date = document.createElement("p");
+  date.classList.add("date");
+  date.textContent = dateText;
+
+  const parOne = document.createElement("p");
+  parOne.textContent = parOneText;
+
+  const parTwo = document.createElement("p");
+  parTwo.textContent = parTwoText;
+
+  const parThree = document.createElement("p");
+  parThree.textContent = parThreeText;
+
+  const expandArticleToggle = () => {
+    article.classList.toggle("article-open");
+  };
+
+  const expandButton = document.createElement("span");
+  expandButton.classList.add("expandButton");
+  expandButton.addEventListener("click", expandArticleToggle);
+  expandButton.textContent = "View Article";
+
+  article.appendChild(title);
+
+  article.appendChild(date);
+
+  article.appendChild(parOne);
+  article.appendChild(parTwo);
+  article.appendChild(parThree);
+
+  article.appendChild(expandButton);
+
+  return article;
+};
+
+const articles = document.querySelector(".articles");
+console.log(articles);
+data.forEach(currentItem => {
+  const newArticle = articleComponent(
+    currentItem.title,
+    currentItem.date,
+    currentItem.firstParagraph,
+    currentItem.secondParagraph,
+    currentItem.thirdParagraph
+  );
+  console.log(newArticle);
+  articles.appendChild(newArticle);
+});
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
   
